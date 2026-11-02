@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#6257e8">
+    <title>Pemesanan Buku | Smartbook</title>
+    <link rel="icon" href="img/smartbook-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="app-shell">
+        <aside class="sidebar"><a class="brand" href="dashboard.html"><img src="img/smartbook-logo.svg" alt=""><span
+                    class="brand-name">smart<span>book</span></span></a>
+            <p class="nav-label">Menu utama</p>
+            <nav class="nav-list"><a class="nav-link" href="dashboard.html"><span
+                        class="nav-icon">▦</span>Dashboard</a><a class="nav-link" href="stok.html"><span
+                        class="nav-icon">▤</span>Stok & Katalog</a><a class="nav-link active" href="checkout.html"><span
+                        class="nav-icon">＋</span>Pemesanan Buku</a><a class="nav-link" href="tracking.html"><span
+                        class="nav-icon">↗</span>Tracking Pengiriman</a></nav>
+            <p class="nav-label">Aktivitas</p>
+            <nav class="nav-list"><a class="nav-link" href="laporan.html"><span class="nav-icon">▥</span>Laporan
+                    Pemesanan</a><a class="nav-link" href="transaksi.html"><span class="nav-icon">◷</span>History
+                    Transaksi</a></nav>
+            <div class="sidebar-bottom">
+                <div class="help-box"><strong>Pesan dengan nyaman</strong>
+                    <p>Pastikan alamat dan nomor kontak benar.</p><a class="btn btn-secondary"
+                        href="tracking.html">Lacak pesanan ↗</a>
+                </div>
+                <div class="profile-row">
+                    <div class="avatar" data-user-initial>SB</div>
+                    <div class="profile-meta"><strong data-user-name>Pengguna Smartbook</strong><span
+                            data-user-role>User</span></div><button class="logout-button" type="button" title="Keluar"
+                        aria-label="Keluar">↪</button>
+                </div>
+            </div>
+        </aside>
+        <main class="main-area">
+            <header class="topbar">
+                <div class="topbar-left"><button class="mobile-menu" aria-label="Buka menu" type="button">☰</button>
+                    <div>
+                        <div class="topbar-title">Pemesanan Buku</div>
+                        <div class="topbar-sub">Pilih buku lalu lengkapi data pemesan</div>
+                    </div>
+                </div>
+                <div class="topbar-right">
+                    <div class="date-chip">▦ <span data-current-date></span></div>
+                    <div class="topbar-avatar">
+                        <div class="avatar" data-user-initial>SB</div>
+                        <div class="profile-name"><strong data-user-name>Pengguna Smartbook</strong><span
+                                data-user-role>User</span></div>
+                    </div>
+                </div>
+            </header>
+            <section class="content">
+                <div class="page-top">
+                    <div><span class="eyebrow">Checkout</span>
+                        <h1>Buat pemesanan</h1>
+                        <p>Tambahkan buku ke keranjang, lalu selesaikan detail pengiriman.</p>
+                    </div><a class="btn btn-outline" href="stok.html">← Kembali ke katalog</a>
+                </div>
+                <form id="checkout-form" novalidate>
+                    <div class="checkout-grid">
+                        <div>
+                            <section class="card checkout-section">
+                                <div class="step-title"><span class="step-number">1</span>
+                                    <h2>Pilih buku</h2>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group"><label for="select-book">Buku dari katalog</label><select
+                                            class="form-control" id="select-book" required></select></div>
+                                    <div class="form-group"><label for="select-qty">Jumlah</label><input
+                                            class="form-control" id="select-qty" type="number" min="1" max="99"
+                                            value="1" required></div>
+                                </div><button class="btn btn-secondary" id="add-to-cart" type="button">＋ Tambahkan ke
+                                    keranjang</button>
+                                <div style="height:18px"></div>
+                                <div class="section-heading">
+                                    <div>
+                                        <h3>Keranjang belanja</h3>
+                                        <p id="cart-count-label">Belum ada buku dipilih.</p>
+                                    </div>
+                                </div>
+                                <div id="cart-items">
+                                    <div class="empty-state"><span class="empty-icon">▣</span>Keranjang masih kosong.
+                                        Pilih buku dari katalog di atas.</div>
+                                </div>
+                            </section>
+                            <section class="card checkout-section">
+                                <div class="step-title"><span class="step-number">2</span>
+                                    <h2>Informasi pemesan</h2>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group"><label for="customer-name">Nama lengkap</label><input
+                                            class="form-control" id="customer-name" required
+                                            placeholder="Nama penerima"></div>
+                                    <div class="form-group"><label for="customer-email">Email</label><input
+                                            class="form-control" id="customer-email" type="email" required
+                                            placeholder="nama@email.com"></div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group"><label for="customer-phone">Nomor telepon</label><input
+                                            class="form-control" id="customer-phone" type="tel" required
+                                            pattern="[0-9+() -]{8,18}" placeholder="08xxxxxxxxxx"></div>
+                                    <div class="form-group"><label for="customer-city">Kota/Kabupaten</label><input
+                                            class="form-control" id="customer-city" required
+                                            placeholder="Contoh: Jakarta Selatan"></div>
+                                </div>
+                                <div class="form-group"><label for="customer-address">Alamat pengiriman
+                                        lengkap</label><textarea class="form-control" id="customer-address" required
+                                        minlength="10"
+                                        placeholder="Nama jalan, nomor rumah, RT/RW, kelurahan..."></textarea></div>
+                            </section>
+                            <section class="card checkout-section">
+                                <div class="step-title"><span class="step-number">3</span>
+                                    <h2>Informasi pembayaran</h2>
+                                </div>
+                                <div class="form-group"><label for="payment-method">Metode pembayaran</label><select
+                                        class="form-control" id="payment-method" required>
+                                        <option value="Transfer bank">Transfer bank</option>
+                                        <option value="E-wallet">E-wallet</option>
+                                        <option value="COD">Bayar di tempat (COD)</option>
+                                    </select></div>
+                                <div class="form-group"><label for="shipping-method">Jenis pengiriman</label><select
+                                        class="form-control" id="shipping-method" required>
+                                        <option value="Reguler">Reguler · Rp10.000</option>
+                                        <option value="Ekspres">Ekspres · Rp20.000</option>
+                                    </select></div>
+                            </section>
+                        </div>
+                        <aside>
+                            <section class="card" style="position:sticky;top:95px">
+                                <div class="section-heading">
+                                    <div>
+                                        <h2>Ringkasan pesanan</h2>
+                                        <p>Cek total sebelum checkout.</p>
+                                    </div><span class="icon-box" style="width:37px;height:37px">▣</span>
+                                </div>
+                                <div class="cart-total">
+                                    <div class="total-row"><span>Subtotal buku</span><strong
+                                            id="summary-subtotal">Rp0</strong></div>
+                                    <div class="total-row"><span>Ongkos kirim</span><strong
+                                            id="summary-shipping">Rp10.000</strong></div>
+                                    <div class="total-row grand"><span>Total pembayaran</span><strong
+                                            id="summary-total">Rp10.000</strong></div>
+                                    <p class="form-hint" style="margin:0">Nomor DO akan dibuat otomatis setelah
+                                        pemesanan disimpan.</p><button class="btn" type="submit" id="place-order">Buat
+                                        pesanan ↗</button><span class="muted small" style="text-align:center">Front-end
+                                        demo · tidak ada pembayaran sungguhan</span>
+                                </div>
+                            </section>
+                        </aside>
+                    </div>
+                </form>
+                <footer class="content-footer"><span>© <span id="footer-year"></span> Smartbook</span><span>Pastikan
+                        data pemesan sudah sesuai sebelum checkout.</span></footer>
+            </section>
+        </main>
+    </div>
+    <div class="modal-backdrop" id="order-success-modal" aria-hidden="true">
+        <section class="modal" role="dialog" aria-modal="true" aria-labelledby="order-success-title">
+            <div style="text-align:center;padding:8px 8px 2px">
+                <div class="icon-box green"
+                    style="width:64px;height:64px;margin:0 auto 17px;font-size:27px;border-radius:20px">✓</div>
+                <h2 id="order-success-title">Pesanan berhasil dibuat!</h2>
+                <p class="muted">Simpan nomor DO ini untuk melacak paketmu.</p>
+                <div style="margin:20px 0;padding:17px;border:1px dashed #d9d6ff;border-radius:13px;background:#faf9ff">
+                    <span class="muted small">NOMOR DELIVERY ORDER</span>
+                    <div id="success-do"
+                        style="margin-top:5px;color:var(--brand);font-size:24px;font-family:Manrope,sans-serif;font-weight:800;letter-spacing:1px">
+                    </div>
+                </div>
+                <p id="success-total" class="muted small"></p>
+                <div class="modal-actions" style="justify-content:center"><button class="btn btn-outline" type="button"
+                        id="copy-do">Salin nomor DO</button><a class="btn" id="track-new-order"
+                        href="tracking.html">Lacak pesanan ↗</a></div>
+            </div>
+        </section>
+    </div>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+
+</html>

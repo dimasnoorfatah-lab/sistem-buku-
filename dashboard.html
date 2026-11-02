@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6257e8"><title>Dashboard | Smartbook</title>
+  <link rel="icon" href="img/smartbook-logo.svg" type="image/svg+xml"><link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="dashboard.html"><img src="img/smartbook-logo.svg" alt=""><span class="brand-name">smart<span>book</span></span></a>
+      <p class="nav-label">Menu utama</p>
+      <nav class="nav-list" aria-label="Navigasi utama">
+        <a class="nav-link active" href="dashboard.html"><span class="nav-icon">▦</span>Dashboard</a>
+        <a class="nav-link" href="stok.html"><span class="nav-icon">▤</span>Stok & Katalog</a>
+        <a class="nav-link" href="checkout.html"><span class="nav-icon">＋</span>Pemesanan Buku</a>
+        <a class="nav-link" href="tracking.html"><span class="nav-icon">↗</span>Tracking Pengiriman</a>
+      </nav>
+      <p class="nav-label">Aktivitas</p>
+      <nav class="nav-list" aria-label="Aktivitas">
+        <a class="nav-link" href="laporan.html"><span class="nav-icon">▥</span>Laporan Pemesanan</a>
+        <a class="nav-link" href="transaksi.html"><span class="nav-icon">◷</span>History Transaksi</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-box"><strong>Butuh bantuan?</strong><p>Pantau pesanan dan katalogmu dengan mudah.</p><a class="btn btn-secondary" href="tracking.html">Lacak pesanan ↗</a></div>
+        <div class="profile-row"><div class="avatar" data-user-initial>SB</div><div class="profile-meta"><strong data-user-name>Pengguna Smartbook</strong><span data-user-role>User</span></div><button class="logout-button" type="button" title="Keluar" aria-label="Keluar">↪</button></div>
+      </div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><div class="topbar-left"><button class="mobile-menu" aria-label="Buka menu" type="button">☰</button><div><div class="topbar-title">Dashboard</div><div class="topbar-sub">Ringkasan aktivitas Smartbook</div></div></div><div class="topbar-right"><div class="date-chip">▦ <span data-current-date></span></div><div class="topbar-avatar"><div class="avatar" data-user-initial>SB</div><div class="profile-name"><strong data-user-name>Pengguna Smartbook</strong><span data-user-role>User</span></div></div></div></header>
+      <section class="content">
+        <div class="welcome-banner"><div class="welcome-text"><span class="eyebrow" id="greeting-label">Selamat datang</span><h1 id="greeting-title">Hai, selamat datang di Smartbook!</h1><p>Kelola koleksi buku, pesan bacaan favorit, dan pantau status pengiriman dalam satu tempat.</p><a class="btn" href="stok.html">Jelajahi katalog <span aria-hidden="true">↗</span></a></div><div class="welcome-art" aria-hidden="true"><img src="img/manajemen_keuangan.jpg" alt=""><img src="img/pengantar_komunikasi.jpg" alt=""><img src="img/kepemimpinan.jpg" alt=""></div></div>
+        <div class="stats-grid">
+          <article class="card stat-card"><div class="icon-box">▤</div><div><p class="stat-label">Judul buku</p><p class="stat-number" id="stat-books">0</p><div class="stat-foot">Koleksi katalog aktif</div></div></article>
+          <article class="card stat-card"><div class="icon-box green">▥</div><div><p class="stat-label">Total stok</p><p class="stat-number" id="stat-stock">0</p><div class="stat-foot">Buku siap dipesan</div></div></article>
+          <article class="card stat-card"><div class="icon-box orange">▣</div><div><p class="stat-label">Total pesanan</p><p class="stat-number" id="stat-orders">0</p><div class="stat-foot">Termasuk data demo</div></div></article>
+          <article class="card stat-card"><div class="icon-box red">↗</div><div><p class="stat-label">Dalam pengiriman</p><p class="stat-number" id="stat-shipping">0</p><div class="stat-foot">Pesanan masih berjalan</div></div></article>
+        </div>
+        <div class="dashboard-grid">
+          <section class="card"><div class="section-heading"><div><h2>Akses cepat</h2><p>Pilih aktivitas yang ingin kamu lakukan.</p></div><span class="pill info">Smartbook</span></div><div class="quick-grid">
+            <a class="quick-link" href="stok.html"><div class="icon-box">▤</div><div><strong>Stok & katalog</strong><span>Kelola koleksi buku</span></div><span class="arrow">↗</span></a>
+            <a class="quick-link" href="checkout.html"><div class="icon-box green">＋</div><div><strong>Buat pemesanan</strong><span>Tambah pesanan baru</span></div><span class="arrow">↗</span></a>
+            <a class="quick-link" href="tracking.html"><div class="icon-box orange">⌖</div><div><strong>Tracking pengiriman</strong><span>Lihat progres paket</span></div><span class="arrow">↗</span></a>
+            <a class="quick-link" href="laporan.html"><div class="icon-box red">▥</div><div><strong>Laporan pesanan</strong><span>Ringkasan aktivitas</span></div><span class="arrow">↗</span></a>
+          </div></section>
+          <section class="card"><div class="section-heading"><div><h2>Pesanan terbaru</h2><p>Aktivitas transaksi terkini.</p></div><a class="text-button" href="transaksi.html">Lihat semua ↗</a></div><div class="activity-list" id="recent-orders"></div></section>
+        </div>
+        <footer class="content-footer"><span>© <span id="footer-year"></span> Smartbook</span><span>Belajar lebih mudah, satu halaman setiap kali.</span></footer>
+      </section>
+    </main>
+  </div>
+  <script src="js/data.js"></script><script src="js/app.js"></script><script src="js/dashboard.js"></script>
+</body></html>

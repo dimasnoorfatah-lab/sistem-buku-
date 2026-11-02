@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#6257e8">
+    <title>Laporan Pemesanan | Smartbook</title>
+    <link rel="icon" href="img/smartbook-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="app-shell">
+        <aside class="sidebar"><a class="brand" href="dashboard.html"><img src="img/smartbook-logo.svg" alt=""><span
+                    class="brand-name">smart<span>book</span></span></a>
+            <p class="nav-label">Menu utama</p>
+            <nav class="nav-list"><a class="nav-link" href="dashboard.html"><span
+                        class="nav-icon">▦</span>Dashboard</a><a class="nav-link" href="stok.html"><span
+                        class="nav-icon">▤</span>Stok & Katalog</a><a class="nav-link" href="checkout.html"><span
+                        class="nav-icon">＋</span>Pemesanan Buku</a><a class="nav-link" href="tracking.html"><span
+                        class="nav-icon">↗</span>Tracking Pengiriman</a></nav>
+            <p class="nav-label">Aktivitas</p>
+            <nav class="nav-list"><a class="nav-link active" href="laporan.html"><span class="nav-icon">▥</span>Laporan
+                    Pemesanan</a><a class="nav-link" href="transaksi.html"><span class="nav-icon">◷</span>History
+                    Transaksi</a></nav>
+            <div class="sidebar-bottom">
+                <div class="help-box"><strong>Ingin pesan buku?</strong>
+                    <p>Koleksi favorit siap dijelajahi.</p><a class="btn btn-secondary" href="stok.html">Buka katalog
+                        ↗</a>
+                </div>
+                <div class="profile-row">
+                    <div class="avatar" data-user-initial>SB</div>
+                    <div class="profile-meta"><strong data-user-name>Pengguna Smartbook</strong><span
+                            data-user-role>User</span></div><button class="logout-button" type="button" title="Keluar"
+                        aria-label="Keluar">↪</button>
+                </div>
+            </div>
+        </aside>
+        <main class="main-area">
+            <header class="topbar">
+                <div class="topbar-left"><button class="mobile-menu" aria-label="Buka menu" type="button">☰</button>
+                    <div>
+                        <div class="topbar-title">Laporan Pemesanan</div>
+                        <div class="topbar-sub">Ringkasan data pesanan</div>
+                    </div>
+                </div>
+                <div class="topbar-right">
+                    <div class="date-chip">▦ <span data-current-date></span></div>
+                    <div class="topbar-avatar">
+                        <div class="avatar" data-user-initial>SB</div>
+                        <div class="profile-name"><strong data-user-name>Pengguna Smartbook</strong><span
+                                data-user-role>User</span></div>
+                    </div>
+                </div>
+            </header>
+            <section class="content">
+                <div class="page-top">
+                    <div><span class="eyebrow">Insight</span>
+                        <h1>Laporan pemesanan</h1>
+                        <p>Ringkasan transaksi berdasarkan data demo dan pesanan yang dibuat.</p>
+                    </div><button class="btn btn-outline" id="print-report" type="button">⎙ Cetak laporan</button>
+                </div>
+                <div class="stats-grid">
+                    <article class="card stat-card">
+                        <div class="icon-box">▣</div>
+                        <div>
+                            <p class="stat-label">Jumlah transaksi</p>
+                            <p class="stat-number" id="report-order-count">0</p>
+                            <div class="stat-foot">Semua status pesanan</div>
+                        </div>
+                    </article>
+                    <article class="card stat-card">
+                        <div class="icon-box green">↗</div>
+                        <div>
+                            <p class="stat-label">Total nilai pesanan</p>
+                            <p class="stat-number" id="report-revenue" style="font-size:20px">Rp0</p>
+                            <div class="stat-foot">Akumulasi nominal transaksi</div>
+                        </div>
+                    </article>
+                    <article class="card stat-card">
+                        <div class="icon-box orange">◷</div>
+                        <div>
+                            <p class="stat-label">Sedang diproses/kirim</p>
+                            <p class="stat-number" id="report-active">0</p>
+                            <div class="stat-foot">Belum selesai</div>
+                        </div>
+                    </article>
+                    <article class="card stat-card">
+                        <div class="icon-box red">✓</div>
+                        <div>
+                            <p class="stat-label">Selesai</p>
+                            <p class="stat-number" id="report-done">0</p>
+                            <div class="stat-foot">Pesanan telah diterima</div>
+                        </div>
+                    </article>
+                </div>
+                <section class="card">
+                    <div class="section-heading">
+                        <div>
+                            <h2>Rincian pesanan</h2>
+                            <p>Gunakan filter status untuk mempersempit laporan.</p>
+                        </div>
+                        <div style="display:flex;gap:9px;flex-wrap:wrap"><select class="form-control" id="status-filter"
+                                aria-label="Filter status" style="width:auto;min-width:155px">
+                                <option value="all">Semua status</option>
+                                <option value="active">Sedang berjalan</option>
+                                <option value="done">Selesai</option>
+                            </select>
+                            <div class="search-box"><span>⌕</span><input class="form-control" type="search"
+                                    id="report-search" placeholder="Cari pesanan..."></div>
+                        </div>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nomor DO</th>
+                                    <th>Pemesan</th>
+                                    <th>Tanggal</th>
+                                    <th>Jumlah item</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Detail</th>
+                                </tr>
+                            </thead>
+                            <tbody id="report-table"></tbody>
+                        </table>
+                    </div>
+                    <div class="empty-state" id="report-empty" hidden>Tidak ada data yang sesuai dengan filter.</div>
+                </section>
+                <footer class="content-footer"><span>© <span id="footer-year"></span> Smartbook</span><span>Laporan
+                        menggunakan data dummy front-end.</span></footer>
+            </section>
+        </main>
+    </div>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/laporan.js"></script>
+</body>
+
+</html>
