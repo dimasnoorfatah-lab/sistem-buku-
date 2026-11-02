@@ -3,12 +3,10 @@
 Smartbook adalah website toko buku online sederhana untuk tugas **UTS Pemrograman Web 1**. Website ini dibuat menggunakan HTML, CSS, dan JavaScript. Data yang digunakan adalah data dummy di file JavaScript dan penyimpanan browser, sehingga belum membutuhkan server atau database.
 
 ## 1. Cara Menjalankan Website
-
-1. Ekstrak file `Smartbook.zip`.
-2. Buka folder `Smartbook` melalui Visual Studio Code.
-3. Pastikan struktur folder dan file tidak dipisahkan.
-4. Jalankan file `login.html` menggunakan ekstensi **Live Server**.
-5. Login menggunakan salah satu akun demo pada bagian **Akun Demo**.
+• Buka folder `Smartbook` melalui Visual Studio Code.
+• Pastikan struktur folder dan file tidak dipisahkan.
+• Jalankan file `login.html` menggunakan ekstensi **Live Server**.
+• Login menggunakan salah satu akun demo pada bagian **Akun Demo**.
 
 Disarankan menggunakan Live Server agar perpindahan halaman dan pemuatan file berjalan lebih konsisten.
 
